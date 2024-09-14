@@ -290,7 +290,7 @@ pcx_get_args(int *ip)
 		if (expr_lablcnt == 0)
 			error("No tile table reference!");
 		if (expr_lablcnt > 1) {
-			expr_lablcnt = NULL;
+			expr_lablcnt = 0;
 			error("Too many tile table references!");
 		}
 		if (!pcx_set_tile(expr_lablptr, value))
@@ -363,7 +363,7 @@ pcx_load(char *name)
 	/* check if the file is the same as the previously loaded one;
 	 * if this is the case do not reload it
 	 */
-	if (strlen(name) && (strcasecmp(pcx_name, name) == NULL))
+	if (strlen(name) && (strcasecmp(pcx_name, name) == 0))
 		return (1);
 	else {
 		/* no it's a new file - ok let's prepare loading */
